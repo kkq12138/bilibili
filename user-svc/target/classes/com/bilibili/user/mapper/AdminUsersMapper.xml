@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bilibili.user.dao.UserDao">
+
+    <!--  查询手机号码或昵称是否存在  -->
+    <select id="soleValid" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM user WHERE
+        <if test="userName==null">
+            phone=#{phone}
+        </if>
+        <if test="phone==null">
+            user_name=#{userName}
+        </if>
+    </select>
+
+    <!--  密码登录  -->
+    <select id="passwordLogin" parameterType="com.bilibili.common.dto.UserDto" resultType="int">
+        SELECT COUNT(*) FROM user WHERE phone=#{phone} AND password=#{password}
+    </select>
+
+    <!--  注册  -->
+    <insert id="signup" parameterType="com.bilibili.common.dto.UserDto">
+        INSERT INTO user(phone,user_name,password)
+        VALUES(#{phone},#{userName},#{password})
+    </insert>
+
+    <!--  修改密码  -->
+    <update id="forgetPassword" parameterType="com.bilibili.common.dto.UserDto">
+        UPDATE user SET password=#{password} WHERE phone=#{phone}
+    </update>
+</mapper>

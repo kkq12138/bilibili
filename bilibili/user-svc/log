@@ -1,0 +1,6 @@
+2020-03-28 14:40:22  [ main:0 ] - [ INFO ]  hello log4j
+2020-03-28 14:40:22  [ main:2 ] - [ FATAL ]  fatal
+2020-03-28 14:40:22  [ main:2 ] - [ ERROR ]  error
+2020-03-28 14:40:22  [ main:2 ] - [ WARN ]  warn
+2020-03-28 14:40:22  [ main:2 ] - [ INFO ]  info
+2020-03-28 14:40:22  [ main:2 ] - [ DEBUG ]  debug
